@@ -26,9 +26,3 @@ animal2.save
 
 animal3 = Animal.new({'name' => 'Brandon', 'type' => 'fish', 'date' => 'March', 'available' => 'true', 'owner_id' => owner2.id})
 animal3.save
-
-
-
-
-binding.pry
-nil
