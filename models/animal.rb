@@ -12,7 +12,7 @@ class Animal
     @admission_date = options['date']
     @available = options['available']
     @id = options['id'].to_i if options['id']
-    @owner_id = options['owner_id'].to_i
+    @owner_id = options['owner_id'].to_i if options['owner_id']
   end
 
 
@@ -58,9 +58,12 @@ class Animal
     SqlRunner.run(sql)
   end
 
-  def owner
-  end
-
+  # def owner()
+  #   sql = "SELECT * FROM owners INNER JOIN adoption_records ON adoption_records.owner_id = owners.id WHERE adoption_records.animal_id = $1;"
+  #   values = [@id]
+  #   owners = SqlRunner.run(sql, values)
+  #   return owners.map { |owner| Owner.new(owner) }
+  # end
 
 
 

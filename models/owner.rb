@@ -32,6 +32,29 @@ class Owner
       SqlRunner.run(sql)
     end
 
+    def self.find(id)
+      sql = "SELECT * FROM owners
+      WHERE id = $1"
+      values = [id]
+      result = SqlRunner.run(sql ,values).first
+      owner = Owner.new(result)
+      return owner
+    end
+
+    def self.all()
+      sql = "SELECT * FROM owners"
+      owner_data = SqlRunner.run(sql)
+      owners = map_items(animal_data)
+      return owners
+    end
+
+    # def animal()
+    #   sql = "SELECT * FROM animals INNER JOIN adoption_records ON adoption_records.animal_id = animals.id WHERE adoption_records.owner_id = $1;"
+    #   values = [@id]
+    #   animals = SqlRunner.run(sql, values)
+    #   return animals.map { |animal| Animal.new(animal) }
+    # end
+
 
 
 
