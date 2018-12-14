@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('owner')
 require('pry')
 
 class Animal
@@ -51,7 +52,6 @@ class Animal
       animals = map_items(animal_data)
       return animals
     end
-
 
   def self.delete_all()
     sql = "DELETE FROM animals;"

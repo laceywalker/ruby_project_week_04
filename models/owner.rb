@@ -1,5 +1,5 @@
 require_relative('../db/sql_runner')
-
+require_relative('animal')
 class Owner
 
   attr_reader :name, :id
