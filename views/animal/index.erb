@@ -1,0 +1,20 @@
+
+<h1>Animals We Currently Have:</h1>
+
+<select>
+  <option value="cat">Cats</option>
+  <option value="dog">Dogs</option>
+  <option value="fish">Fish</option>
+  <option value="exotic">Exotic</option>
+</select>
+
+
+<p></p><% @animals.each do |animal| %>
+  <p>Name: <%=animal.name%></p>
+  <p>Type: <%=animal.type%></p>
+  <p>Admission Date: <%=animal.admission_date%></p>
+  <p>Available: <%=animal.available%></p>
+  <p>Owner: <%=animal.owner_id%></p>
+  <p><a href="/animals/<%=animal.id%>">More Information</a></p>
+<hr/>
+<%end%>

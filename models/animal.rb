@@ -16,74 +16,49 @@ class Animal
   end
 
 
-    def save()
-      sql = "INSERT INTO animals
-      (
-        name,
-        type,
-        admission_date,
-        available,
-        owner_id
+  def save()
+    sql = "INSERT INTO animals (name, type, admission_date, available, owner_id)
+           VALUES ($1, $2, $3, $4, $5) RETURNING id"
+    values = [@name, @type, @admission_date, @available, @owner_id]
+    result = SqlRunner.run(sql, values)
+    id = result.first["id"]
+    @id = id.to_i
+  end
 
-      )
-      VALUES
-      (
-        $1, $2, $3, $4, $5
-      )
-      RETURNING id"
-      values = [@name, @type, @admission_date, @available, @owner_id]
-      result = SqlRunner.run(sql, values)
-      id = result.first["id"]
-      @id = id.to_i
-    end
+  def self.find(id)
+    sql = "SELECT * FROM animals WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql ,values).first
+    animal = Animal.new(result)
+    return animal
+  end
 
-      def self.find(id)
-        sql = "SELECT * FROM animals
-        WHERE id = $1"
-        values = [id]
-        result = SqlRunner.run(sql ,values).first
-        animal = Animal.new(result)
-        return animal
-      end
+  def self.all()
+    sql = "SELECT * FROM animals"
+    animal_data = SqlRunner.run(sql)
+    animals = map_items(animal_data)
+    return animals
+  end
 
-      def self.all()
-        sql = "SELECT * FROM animals"
-        animal_data = SqlRunner.run(sql)
-        animals = map_items(animal_data)
-        return animals
-      end
+  def self.map_items(animal_data)
+    return animal_data.map { |animal| Animal.new(animal) }
+  end
 
-      def self.map_items(animal_data)
-        return animal_data.map { |animal| Animal.new(animal) }
-      end
+  def self.delete_all()
+    sql = "DELETE FROM animals;"
+    SqlRunner.run(sql)
+  end
 
-    def self.delete_all()
-      sql = "DELETE FROM animals;"
-      SqlRunner.run(sql)
-    end
+  def owner()
+    sql = "SELECT * FROM animals WHERE owner_id = $1"
+    values = [@id]
+    owners = SqlRunner.run(sql, values)
+    return owners.map { |owner| Owner.new(owner) }
+  end
 
-    def owner()
-      sql = "SELECT * FROM animals
-        WHERE owner_id = $1"
-      values = [@id]
-      owners = SqlRunner.run(sql, values)
-      return owners.map { |owner| Owner.new(owner) }
-    end
-
-    def update()
-    sql = "UPDATE animals
-    SET
-    (
-      name,
-      type,
-      admission_date,
-      available,
-      owner_id
-    ) =
-    (
-      $1, $2, $3, $4, $5
-    )
-    WHERE id = $5"
+  def update()
+    sql = "UPDATE animals SET (name, type, admission_date, available, owner_id) =
+    ($1, $2, $3, $4, $5) WHERE id = $5"
     values = [@name, @type, @admission_date, @available, @owner_id]
     SqlRunner.run(sql, values)
   end
@@ -95,19 +70,9 @@ class Animal
     SqlRunner.run(sql, values)
   end
 
-  def owner_name()
-  owner = Owner.find(@owner_id)
-  return owner
-end
 
-  #
-  # def get_adopted(owner_id)
-  #   @owner_id.update(owner_id)
-  # end
-  # def get_adopted(owner_id)
-  #   sql = "INSERT INTO animals
-  #     ()"
-  # end
+
+
 
 
 

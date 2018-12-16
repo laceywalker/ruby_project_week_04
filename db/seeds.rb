@@ -17,6 +17,8 @@ owner2.save
 owner3 = Owner.new({'name' => 'Jim Jones'})
 owner3.save
 
+owner4 = Owner.new({'name' => 'Tommy Bones'})
+owner4.save
 
 animal1 = Animal.new({'name' => 'Raisin', 'type' => 'cat', 'date' => 'January', 'available' => 'true', 'owner_id' => owner1.id})
 animal1.save
@@ -26,3 +28,6 @@ animal2.save
 
 animal3 = Animal.new({'name' => 'Brandon', 'type' => 'fish', 'date' => 'March', 'available' => 'true', 'owner_id' => owner2.id})
 animal3.save
+
+binding.pry
+nil
