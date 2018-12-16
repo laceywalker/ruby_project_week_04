@@ -4,10 +4,10 @@ require('pry')
 
 class Animal
 
-  attr_reader :name, :type, :available, :admission_date, :id, :owner_id
+  attr_reader :animal_name, :type, :available, :admission_date, :id, :owner_id
 
   def initialize(options)
-    @name = options['name']
+    @animal_name = options['animal_name']
     @type = options['type']
     @admission_date = options['admission_date']
     @available = options['available']
@@ -17,9 +17,9 @@ class Animal
 
 
   def save()
-    sql = "INSERT INTO animals (name, type, admission_date, available, owner_id)
+    sql = "INSERT INTO animals (animal_name, type, admission_date, available, owner_id)
            VALUES ($1, $2, $3, $4, $5) RETURNING id"
-    values = [@name, @type, @admission_date, @available, @owner_id]
+    values = [@animal_name, @type, @admission_date, @available, @owner_id]
     result = SqlRunner.run(sql, values)
     id = result.first["id"]
     @id = id.to_i
@@ -57,9 +57,9 @@ class Animal
   end
 
   def update()
-    sql = "UPDATE animals SET (name, type, admission_date, available, owner_id) =
+    sql = "UPDATE animals SET (animal_name, type, admission_date, available, owner_id) =
     ($1, $2, $3, $4, $5) WHERE id = $5"
-    values = [@name, @type, @admission_date, @available, @owner_id]
+    values = [@animal_name, @type, @admission_date, @available, @owner_id]
     SqlRunner.run(sql, values)
   end
 

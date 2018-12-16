@@ -9,7 +9,7 @@ CREATE TABLE owners (
 
 CREATE TABLE animals (
   id SERIAL8 primary key,
-  name VARCHAR(255),
+  animal_name VARCHAR(255),
   type VARCHAR(255),
   owner_id INT8 REFERENCES owners(id),
   admission_date VARCHAR(255),
