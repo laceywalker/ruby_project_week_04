@@ -9,7 +9,7 @@ class Animal
   def initialize(options)
     @name = options['name']
     @type = options['type']
-    @admission_date = options['date']
+    @admission_date = options['admission_date']
     @available = options['available']
     @id = options['id'].to_i if options['id']
     @owner_id = options['owner_id'].to_i if options['owner_id']

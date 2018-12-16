@@ -4,10 +4,11 @@
   <title>Local Animal Shelter</title>
   <link rel="stylesheet" type="text/css" href="/styles/style.css">
 </head>
-<nav>
-  <p><a href="/animals">Animals</a></p>
-  <p><a href="/owners">Owners</a></p>
-  <p><a href="/">Home</a></p>
-  </nav>
+  <div class="topnav">
+  <a class="active" href="/">Home</a>
+  <a href="/animals">Animals</a>
+  <a href="/owners">Owners</a>
+  <input type="text" placeholder="Search..">
+</div>
   <%= yield %>
 </html>
