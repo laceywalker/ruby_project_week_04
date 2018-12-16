@@ -1,15 +1,10 @@
 <h1>Owners</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th>Animal</th>
-  </tr>
-  <% for owner in @owners %>
-  <tr>
-    <td><a href="/owners/<%= owner.id %>"><%= owner.name %></a></td>
-    <td>|</td>
-  </tr>
-  <% end %>
-</table>
+  <% @owners.each do |owner| %>
+  <p>Name: <%=owner.name%></p>
+  <% owner.animal.each do |animal| %>
+  <p>Animal name: <%=animal.name%></p>
+
+    <%end%>
+
+  <%end%>
