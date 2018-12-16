@@ -10,11 +10,10 @@
 
 
   <% @animals.each do |animal| %>
-  <p>Name: <%=animal.name%> </p>
+  <p>Name: <%=animal.animal_name%> </p>
   <p>Type: <%=animal.type%> </p>
   <p>Available: <%=animal.available%></p>
   <p>Resident Since: <%=animal.admission_date%></p>
   <p>Owner: <%=animal.owner_id%></p>
-  <p><a href="/animals/<%=animal.id%>">More Information</a></p>
-
-<%end%>
+    <p><a href="/animals/<%=animal.id%>">More Information</a></p>
+    <%end%>

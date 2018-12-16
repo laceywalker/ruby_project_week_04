@@ -19,6 +19,12 @@ get '/animals/:id' do
   erb( :"animal/show" )
 end
 
+post '/animals' do
+  @owner = Owner.new(params)
+  @owner.save
+  erb(:"animal/create")
+end
+
 post '/animals/:id' do
   Animal.new(params).update
   redirect to '/animals'

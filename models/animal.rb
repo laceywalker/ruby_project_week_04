@@ -51,7 +51,7 @@ class Animal
 
   def owner()
     sql = "SELECT * FROM animals WHERE owner_id = $1"
-    values = [@id]
+    values = [@owner_id]
     owners = SqlRunner.run(sql, values)
     return owners.map { |owner| Owner.new(owner) }
   end
@@ -71,8 +71,10 @@ class Animal
   end
 
 
-
-
+  def owner_name()
+    owner = Owner.find(@owner_id)
+    return owner
+  end
 
 
 

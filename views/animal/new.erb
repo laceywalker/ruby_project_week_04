@@ -1,11 +1,18 @@
 <form  action="/animals" method="post">
+
+  <p>Existing Customers</p><select>
+    <option value="dog">Dogs</option>
+    <option value="fish">Fish</option>
+    <option value="exotic">Exotic</option>
+  </select>
+
+
 <fieldset>
-  <label for="first_name_field">Name:</label>
-  <input type="text" name="first_name" id="first_name_field"/>
+  <label for="first_name_field">Or Enter your full name:</label>
+  <input type="text" name="name" id="first_name_field"/>
 
-  <label for="age_field">Age:</label>
-  <input type="text" name="age" id="age_field"/>
+
+
+<input type="submit" value="Adopt Now!">
 </fieldset>
-
-
 </form>
