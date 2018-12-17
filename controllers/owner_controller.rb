@@ -11,5 +11,21 @@ get '/owners' do
 end
 
 get '/owners/:id' do
+  @owner = Owner.find(params[:id])
+  erb( :"owner/show" )
+end
+
+get '/owners/:id/edit' do
+  @owner = Owner.find(params[:id])
+  erb(:"owner/edit")
+end
+
+get '/owners/:id/delete' do
+  erb(:"owner/show")
+end
+
+post '/owners/:id/delete' do
+  owner = Owner.find(params[:id])
+  owner.delete
   erb(:"owner/show")
 end

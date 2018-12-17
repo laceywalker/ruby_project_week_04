@@ -4,7 +4,7 @@ require('pry')
 
 class Animal
 
-  attr_reader :animal_name, :type, :available, :admission_date, :id, :owner_id
+  attr_accessor :animal_name, :type, :available, :admission_date, :id, :owner_id
 
   def initialize(options)
     @animal_name = options['animal_name']
@@ -49,11 +49,15 @@ class Animal
     SqlRunner.run(sql)
   end
 
-  def owner()
-    sql = "SELECT * FROM animals WHERE owner_id = $1"
+  def owner() #presentation - this drove me insane
+    sql = "SELECT * FROM owners WHERE id = $1"
     values = [@owner_id]
-    owners = SqlRunner.run(sql, values)
-    return owners.map { |owner| Owner.new(owner) }
+    owner = SqlRunner.run(sql, values)
+    if owner[0].length == 1
+      return Owner.new(owner)
+    elseif owner  == nil
+      return 'potatoes'
+    end
   end
 
   def update()
@@ -70,11 +74,10 @@ class Animal
     SqlRunner.run(sql, values)
   end
 
-
-  def owner_name()
-    owner = Owner.find(@owner_id)
-    return owner
-  end
+  # def owner_name()
+  #   owner = Owner.find(@owner_id)
+  #   return owner
+  # end
 
 
 
