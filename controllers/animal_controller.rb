@@ -35,8 +35,7 @@ end
 post '/animals/:id/adopt' do
   animal = Animal.find(params['id'])
   animal.owner_id = params['owner_id'].to_i
-  # animal = Animal.new(params)
-  new_animal.update
+  animal.update
   redirect to "/animals"
 end
 
@@ -44,4 +43,12 @@ post '/animals/:id' do
   animal = Animal.new(params)
   animal.update
   redirect to "/animals/#{params['id']}"
+end
+
+get '/animals/search/for/animal' do
+  erb(:"/animal/search")
+end
+
+post 'animals/search/for/animal' do
+  @found_animal = Animal.search_animal(params)
 end

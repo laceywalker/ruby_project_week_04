@@ -13,5 +13,6 @@ CREATE TABLE animals (
   type VARCHAR(255),
   owner_id INT8 REFERENCES owners(id),
   admission_date VARCHAR(255),
-  available VARCHAR(255)
+  available VARCHAR(255),
+  image VARCHAR(255)
 );

@@ -4,7 +4,7 @@ require('pry')
 
 class Animal
 
-  attr_accessor :animal_name, :type, :available, :admission_date, :id, :owner_id
+  attr_accessor :animal_name, :type, :available, :admission_date, :id, :owner_id, :image
 
   def initialize(options)
     @animal_name = options['animal_name']
@@ -13,13 +13,14 @@ class Animal
     @available = options['available']
     @id = options['id'].to_i if options['id']
     @owner_id = options['owner_id'].to_i if options['owner_id']
+    @image = options['image']
   end
 
 
   def save()
-    sql = "INSERT INTO animals (animal_name, type, admission_date, available, owner_id)
-           VALUES ($1, $2, $3, $4, $5) RETURNING id"
-    values = [@animal_name, @type, @admission_date, @available, @owner_id]
+    sql = "INSERT INTO animals (animal_name, type, admission_date, available, owner_id, image)
+           VALUES ($1, $2, $3, $4, $5, $6) RETURNING id"
+    values = [@animal_name, @type, @admission_date, @available, @owner_id, @image]
     result = SqlRunner.run(sql, values)
     id = result.first["id"]
     @id = id.to_i
@@ -62,8 +63,8 @@ class Animal
 
   def update()
     sql = "UPDATE animals SET (animal_name, type, admission_date, available, owner_id) =
-    ($1, $2, $3, $4, $5) WHERE id = $5"
-    values = [@animal_name, @type, @admission_date, @available, @owner_id]
+    ($1, $2, $3, $4, $5) WHERE id = $6"
+    values = [@animal_name, @type, @admission_date, @available, @owner_id, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -74,7 +75,14 @@ class Animal
     SqlRunner.run(sql, values)
   end
 
-  
+  def self.search_animal(search)
+     sql = "SELECT * FROM animals
+             WHERE (type LIKE $1 OR name LIKE lower($1))"
+     values = ["%#{search}%"]
+     animals = SqlRunner.run(sql, values)
+     return animals.map{|animal| Animal.new(animal)}
+   end
+
 
 
 
