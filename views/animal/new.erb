@@ -1,18 +1,29 @@
 <form  action="/animals" method="post">
 
-  <p>Existing Customers</p><select>
-    <option value="dog">Dogs</option>
-    <option value="fish">Fish</option>
-    <option value="exotic">Exotic</option>
-  </select>
-
-
 <fieldset>
-  <label for="first_name_field">Or Enter your full name:</label>
-  <input type="text" name="name" id="first_name_field"/>
-
-
-
-<input type="submit" value="Adopt Now!">
+    <label for="name">Animal Name:</label>
+    <input
+    type="text"
+    name="animal_name"
+    id="name"
+    />
 </fieldset>
+<fieldset>
+    <label for="species">Select type of animal:</label>
+    <select name="type" id="species">
+      <option value="Cat">Cat</option>
+      <option value="Dog">Dog</option>
+      <option value="Fish">Fish</option>
+      <option value="Exotic">Exotic</option>
+    </select>
+</fieldset>
+<fieldset>
+    <label for="date">Today's Date:</label>
+    <input type="text" name="admission_date" id="date"/>
+</fieldset>
+<fieldset>
+    <label for="yes">Do you want to abandon this animal? Type YES or NO</label>
+    <input type="text" name="available" id="yes"/>
+</fieldset>
+    <input type="submit" value="Abandon Animal">
 </form>

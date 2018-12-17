@@ -20,12 +20,12 @@ get '/owners/:id/edit' do
   erb(:"owner/edit")
 end
 
-get '/owners/:id/delete' do
-  erb(:"owner/show")
-end
-
-post '/owners/:id/delete' do
-  owner = Owner.find(params[:id])
-  owner.delete
-  erb(:"owner/show")
-end
+# get '/owners/:id/delete' do
+#   redirect to '/owners'
+# end
+#
+# post '/owners/:id/delete' do
+#   owner = Owner.find(params[:id])
+#   owner.destroy
+#   redirect to '/owners'
+# end

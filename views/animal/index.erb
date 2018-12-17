@@ -14,6 +14,6 @@
   <p>Type: <%=animal.type%> </p>
   <p>Available: <%=animal.available%></p>
   <p>Resident Since: <%=animal.admission_date%></p>
-  <p>Owner: <%=animal.owner_id%></p>
+  <p>Owner: <%=animal.owner.name%></p>
     <p><a href="/animals/<%=animal.id%>">More Information</a></p>
     <%end%>

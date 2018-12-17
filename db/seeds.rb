@@ -20,6 +20,12 @@ owner3.save
 owner4 = Owner.new({'name' => 'Tommy Bones'})
 owner4.save
 
+owner5 = Owner.new({'name' => 'Tony Pianofingers'})
+owner5.save
+
+owner6 = Owner.new({'name' => 'Cecil B. Carruthers'})
+owner6.save
+
 animal1 = Animal.new({'animal_name' => 'Raisin', 'type' => 'cat', 'admission_date' => 'January', 'available' => 'no', 'owner_id' => owner1.id})
 animal1.save
 

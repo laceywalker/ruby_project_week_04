@@ -1,0 +1,18 @@
+<h1>ADOPT</h1>
+
+
+<p><%=@animal.animal_name%></p>
+
+<form action="/animals/<%=@animal.id%>/adopt" method="post">
+<fieldset>
+  <div class="form-el">
+    <label for="owner_select">Select Owner:</label>
+    <select name="owner_id" id="owner_select">
+      <% @owners.each do |owner| %>
+          <option value=<%= owner.id %>><%= owner.name%></option>
+        <% end %>
+      </select>
+  </div>
+</fieldset>
+  <input type="submit" value="Adopt Animal">
+</form>

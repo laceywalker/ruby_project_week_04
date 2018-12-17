@@ -43,6 +43,7 @@ class Owner
   def self.map_items(owner_data)
     return owner_data.map { |owner| Owner.new(owner) }
   end
+  
 
   def animal()
     sql = "SELECT * FROM animals INNER JOIN owners ON animals.owner_id = owners.id
@@ -52,6 +53,11 @@ class Owner
     return animals.map { |animal| Animal.new(animal) }
   end
 
+  def self.destroy(id)
+    sql = "DELETE FROM owners WHERE id = $1"
+    values = [id]
+    SqlRunner.run( sql, values )
+  end
 
 
 

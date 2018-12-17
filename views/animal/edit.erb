@@ -1,17 +1,54 @@
-<form method="post" action="/animals/<%=@animal.id %>">
-  <label for="name">Name:</label>
-  <input
-  type="text"
-  name="name"
-  id="name"
-  value="<%= @animal.animal_name %>"/>
-  <label for="name">Name:</label>
-  <input
-  type="text"
-  name="name"
-  id="name"
-  value="<%= @animal.animal_name %>"/>
+<h1>Adopt an Animal</h1>
+
+<form  action="/animals" method="post">
+<fieldset>
+  <label for="animal_select">Select Animal to Adopt:</label>
+    <select name="animal_id" id="animal_select">
+      <option value="Raisin">Raisin</option>
+      <option value="Brandon">Brandon</option>
+      <option value="Mr. Bananas">Mr. Bananas</option>
+      <option value="Meatball">Meatball</option>
+      <option value="Milhouse">Milhouse</option>
+      <option value="Franklin">Franklin</option>
+    </select>
+</fieldset>
+<fieldset>
+    <label for="species">Select type of animal:</label>
+    <select name="type" id="species">
+      <option value="Cat">Cat</option>
+      <option value="Dog">Dog</option>
+      <option value="Fish">Fish</option>
+      <option value="Exotic">Exotic</option>
+    </select>
+<fieldset>
+    <label for="yes">Do you want to adopt this animal? Type YES or NO</label>
+    <input type="text" name="available" id="yes"/>
+</fieldset>
 
 
-  <input type='submit' value="Adopt Animal">
+
+    <input type="submit" value="Adopt Animal">
 </form>
+
+
+
+
+
+
+
+<!-- <fieldset>
+  <label for="animal_select">Animals - Select Animal to Adopt:</label>
+    <select name="animal_id" id="animal_select">
+      <option value="Raisin">Raisin</option>
+      <option value="Brandon">Brandon</option>
+      <option value="Mr. Bananas">Mr. Bananas</option>
+      <option value="Meatball">Meatball</option>
+      <option value="Milhouse">Milhouse</option>
+      <option value="Franklin">Franklin</option>
+    </select>
+</fieldset> -->
+
+
+
+
+<!-- <input type="submit" value="Adopt Now!"> -->

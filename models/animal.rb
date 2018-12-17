@@ -49,14 +49,14 @@ class Animal
     SqlRunner.run(sql)
   end
 
-  def owner() #presentation - this drove me insane
+  def owner() #presentation - this drove me insane, essentially newing up a blank at the bottom bc cannot call .name method on a string
     sql = "SELECT * FROM owners WHERE id = $1"
     values = [@owner_id]
     owner = SqlRunner.run(sql, values)
-    if owner[0].length == 1
-      return Owner.new(owner)
-    elseif owner  == nil
-      return 'potatoes'
+    if owner.count == 1
+      return Owner.new(owner[0])
+    else
+      return Owner.new({})
     end
   end
 
@@ -74,10 +74,7 @@ class Animal
     SqlRunner.run(sql, values)
   end
 
-  # def owner_name()
-  #   owner = Owner.find(@owner_id)
-  #   return owner
-  # end
+  
 
 
 
