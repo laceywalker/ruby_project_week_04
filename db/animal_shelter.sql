@@ -11,7 +11,7 @@ CREATE TABLE animals (
   id SERIAL8 primary key,
   animal_name VARCHAR(255),
   type VARCHAR(255),
-  owner_id INT8 REFERENCES owners(id),
+  owner_id INT8 REFERENCES owners(id) ON DELETE CASCADE,
   admission_date VARCHAR(255),
   available VARCHAR(255),
   image TEXT
