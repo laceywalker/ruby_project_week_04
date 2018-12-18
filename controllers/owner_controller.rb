@@ -10,22 +10,46 @@ get '/owners' do
   erb ( :"owner/index" )
 end
 
+get '/owners/new' do
+  @owners = Owner.all
+  erb(:"owner/new")
+end
+
+
 get '/owners/:id' do
   @owner = Owner.find(params[:id])
   erb( :"owner/show" )
 end
 
-get '/owners/:id/edit' do
-  @owner = Owner.find(params[:id])
-  erb(:"owner/edit")
+post '/owners' do
+  @owner = Owner.new(params)
+  @owner.save
+  redirect to '/owners'
 end
 
-# get '/owners/:id/delete' do
-#   redirect to '/owners'
+post '/owners/:id/delete' do          #would need to call method before which UNADOPTS pets then delete
+  Owner.delete(params[:id])
+  redirect to '/owners'
+end
+
+# post '/animals/:id/adopt' do
+#   animal = Animal.find(params['id'])
+#   animal.owner_id = params['owner_id'].to_i
+#   animal.update
+#   redirect to "/animals"
+# end
+
+
+
+
+# get '/owners/:id/edit' do
+#   @owner = Owner.find(params['id'].to_i)
+#   erb(:"owner/:id/edit")
 # end
 #
-# post '/owners/:id/delete' do
-#   owner = Owner.find(params[:id])
-#   owner.destroy
-#   redirect to '/owners'
+# post '/animals/:id/edit' do
+#   animal = Animal.find(params['id'])
+#   animal.owner_id = params['owner_id'].to_i
+#   animal.update
+#   redirect to "/animals"
 # end

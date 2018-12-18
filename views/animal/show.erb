@@ -3,8 +3,9 @@
 <p>Type: <%=@animal.type%></p>
 <p>Resident Since: <%=@animal.admission_date%></p>
 <p>Available: <%=@animal.available%></p>
+<img src=<%=@animal.image%> alt=<%@animal.animal_name%>>
 
 
-<p><a href="/animals/<%= @animal.id %>/adopt">Adopt Animal</a></p>
-
-</form>
+  <% if @animal.available == "yes" %>
+  <a href="/animals/<%=@animal.id%>/adopt">Adopt Animal</a>
+  <%end%>

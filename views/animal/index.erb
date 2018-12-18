@@ -6,20 +6,13 @@
   <input type="submit" value="search by type">
 </form>
 
-<!-- <p>Search By Type</p><select>
-  <option value="cat">Cats</option>
-  <option value="dog">Dogs</option>
-  <option value="fish">Fish</option>
-  <option value="exotic">Exotic</option>
-</select> -->
-
-
   <% @animals.each do |animal| %>
   <p>Name: <%=animal.animal_name%> </p>
   <p>Type: <%=animal.type%> </p>
   <p>Available: <%=animal.available%></p>
   <p>Resident Since: <%=animal.admission_date%></p>
   <p>Owner: <%=animal.owner.name%></p>
+  <p><a href="/animals/<%=animal.id%>">More Information</a></p>
   <img src=<%=animal.image%> alt=<%animal.animal_name%>>
-    <p><a href="/animals/<%=animal.id%>">More Information</a></p>
+
     <%end%>

@@ -1,5 +1,32 @@
 body {
+  background-image: url("https://adelaidevet.com.au/sites/default/files/styles/featured_teaser/public/images/news/2015-cat-xmas-lights.jpg?itok=8VkANq6e");
+  background-size: cover;
   font-family: 'Montserrat', sans-serif;
-  color: red;
-  background: url('/images/adoptme.jpg');
+  color: black;
+}
+
+.header {
+  text-align: center;
+  line-height: 1.5;
+  word-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 30px;
+  color: blue;
+  border: 2px solid black;
+  background-image: url("https://www.freewebheaders.com/wordpress/wp-content/gallery/dogs/golden-retriever-puppy-relaxing-on-white-cat-web-header.jpg");
+  background-size: top;
+  margin-bottom: 20px;
+}
+
+.nav {
+  text-align: center;
+  line-height: 1.5;
+  word-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 30px;
+  color: blue;
+  border: 2px solid black;
+  margin-bottom: 20px;
 }

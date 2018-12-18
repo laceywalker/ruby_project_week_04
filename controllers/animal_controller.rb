@@ -4,7 +4,7 @@ require_relative('../models/animal')
 also_reload('./models/*')
 require('pry')
 
-# index
+
 get '/animals' do
   @animals = Animal.all
   erb( :"animal/index" )
@@ -39,16 +39,12 @@ post '/animals/:id/adopt' do
   redirect to "/animals"
 end
 
-post '/animals/:id' do
-  animal = Animal.new(params)
-  animal.update
-  redirect to "/animals/#{params['id']}"
-end
 
-get '/animals/search/for/animal' do
-  erb(:"/animal/search")
-end
 
-post 'animals/search/for/animal' do
-  @found_animal = Animal.search_animal(params)
-end
+# get '/animals/search/for/animal' do
+#   erb(:"/animal/search")
+# end
+
+# post 'animals/search/for/animal' do
+#   @found_animal = Animal.search_animal(params)
+# end
