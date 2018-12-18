@@ -1,7 +1,18 @@
 <h1>Owners</h1>
 
+<form  action="/owners" method="post">
 
-<p><a href="/owners/new">Register New Owner</a>
+<fieldset>
+    <label for="owner_name">Enter Full Name:</label>
+    <input
+    type="text"
+    name="name"
+    id="owner_name"
+    />
+    <input type="submit" value="Register Owner">
+    </fieldset>
+</form>
+<!-- <p><a href="/owners/new">Register New Owner</a> -->
 
 
   <% @owners.each do |owner| %>

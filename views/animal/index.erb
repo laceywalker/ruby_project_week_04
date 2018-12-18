@@ -1,3 +1,6 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="styles/animalstyle.css">
+</head>
 
 <h1>Animals We Currently Have:</h1>
 
@@ -13,6 +16,6 @@
   <p>Resident Since: <%=animal.admission_date%></p>
   <p>Owner: <%=animal.owner.name%></p>
   <p><a href="/animals/<%=animal.id%>">More Information</a></p>
-  <img src=<%=animal.image%> alt=<%animal.animal_name%>>
+  <img class="image" src=<%=animal.image%> alt=<%animal.animal_name%>>
 
     <%end%>

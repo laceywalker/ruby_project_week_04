@@ -2,6 +2,7 @@
 
 
 <p><%=@animal.animal_name%></p>
+<img class="show_image" src=<%=@animal.image%> alt=<%@animal.animal_name%>>
 
 <form action="/animals/<%=@animal.id%>/adopt" method="post">
 <fieldset>

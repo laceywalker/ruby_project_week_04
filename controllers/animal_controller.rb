@@ -32,9 +32,10 @@ get '/animals/:id/adopt' do
   erb(:"animal/adopt")
 end
 
-post '/animals/:id/adopt' do
+post '/animals/:id/adopt' do      #new up animal 
   animal = Animal.find(params['id'])
   animal.owner_id = params['owner_id'].to_i
+  animal.available = params['available']
   animal.update
   redirect to "/animals"
 end

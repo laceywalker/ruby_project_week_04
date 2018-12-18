@@ -1,30 +1,28 @@
 <form  action="/animals" method="post">
 
-<fieldset>
+<div class="adopt_box">
     <label for="name">Animal Name:</label>
     <input
     type="text"
     name="animal_name"
     id="name"
     />
-</fieldset>
-<fieldset>
-    <label for="species">Select type of animal:</label>
+
+  <label for="species">Select type of animal:</label>
     <select name="type" id="species">
       <option value="Cat">Cat</option>
       <option value="Dog">Dog</option>
       <option value="Fish">Fish</option>
       <option value="Exotic">Exotic</option>
     </select>
-</fieldset>
-<fieldset>
-    <label for="date">Today's Date:</label>
+
+  <label for="date">Today's Date:</label>
     <input type="text" name="admission_date" id="date"/>
-</fieldset>
-<fieldset>
-    <label for="photo">Add a URL link for a photo:</label>
+
+
+  <label for="photo">Add a URL link for a photo:</label>
     <input type="text" name="image" id="photo"/>
-</fieldset>
+
 <input type="hidden" name="available" id="available" value="yes">
-    <input type="submit" value="Abandon Animal">
+    <input class="button" type="submit" value="Abandon Animal">
 </form>
