@@ -1,11 +1,12 @@
 
-<p>Animal Name: <%=@animal.animal_name%></p>
-<p>Type: <%=@animal.type%></p>
-<p>Resident Since: <%=@animal.admission_date%></p>
-<p>Available: <%=@animal.available%></p>
+<p><strong>Animal Name:</strong> <%=@animal.animal_name%></p>
+<p><strong>Type:</strong> <%=@animal.type%></p>
+<p><strong>Resident Since:</strong> <%=@animal.admission_date%></p>
+<p><strong>Available:</strong> <%=@animal.available%></p>
 
 <% if @animal.available == "yes" %>
 <a href="/animals/<%=@animal.id%>/adopt">Adopt Animal</a>
 <%end%>
-
+<br>
+<br>
 <img class="image" src=<%=@animal.image%> alt=<%@animal.animal_name%>>

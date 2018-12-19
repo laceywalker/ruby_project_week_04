@@ -1,5 +1,5 @@
 
-<h1 id="owner-heading">List of Current Owners</h1>
+<h1 class="page-heading">List of Current Owners</h1>
 <h3>Or Register a New Owner:</h3>
 
 <form  action="/owners" method="post">
@@ -10,16 +10,16 @@
     name="name"
     id="owner_name"
     />
-    <input type="submit" value="Register Owner">
+    <input class="button" type="submit" value="Register Owner">
     </div>
 </form>
 
 
   <% @owners.each do |owner| %>
 <div class = "owners">
-  <p>Name: <%=owner.name%></p>
+  <p><strong>Name:</strong> <%=owner.name%></p>
   <% owner.animal.each do |animal| %>
-  <p>Animals: <%=animal.animal_name%></p>
+  <p><strong>Animals</strong>: <%=animal.animal_name%></p>
     <%end%>
 
   <p><a href="/owners/<%=owner.id%>">More Information</a></p>

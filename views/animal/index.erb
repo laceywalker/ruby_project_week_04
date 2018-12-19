@@ -1,24 +1,24 @@
 
 
-<h1>Our Current Animal Residents:</h1>
+<h1 class="page-heading">Our Current Animal Residents:</h1>
 
 <form action="/animals/search/for/animal" method="post">
+  <input class="button" type="submit" value="search by type">
   <input type="text" placeholder="Search">
-  <input type="submit" value="search by type">
 </form>
 
 
+
   <% @animals.each do |animal| %>
-    <div class = "animal-container">
-      <p>Name: <%=animal.animal_name%> </p>
-      <p>Type: <%=animal.type%> </p>
-      <p>Available: <%=animal.available%></p>
-      <p>Resident Since: <%=animal.admission_date%></p>
-      <p>Owner: <%=animal.owner.name%></p>
-    <div>
-      <div class = "index-image">
+    <div class = "owners">
+      <p><strong>Name:</strong> <%=animal.animal_name%> </p>
+      <p><strong>Type:</strong> <%=animal.type.capitalize%> </p>
+      <p><strong>Available:</strong> <%=animal.available.capitalize%></p>
+      <p><strong>Resident Since:</strong> <%=animal.admission_date%></p>
+      <p><strong>Owner: </strong><%=animal.owner.name%></p>
+    <div class = "index-image">
         <p><a href="/animals/<%=animal.id%>">More Information</a></p>
         <img class="image" src=<%=animal.image%> alt=<%animal.animal_name%>>
-      </div>
-  <%end%>
-</div>
+    </div>
+        <%end%>
+    </div>

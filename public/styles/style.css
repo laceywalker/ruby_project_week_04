@@ -121,6 +121,7 @@ body {
   display: inline-grid;
 }
 
+
 .owners {
   display: grid;
   border: 1px solid black;
@@ -131,12 +132,12 @@ body {
   margin: 40px;
 }
 
-#owner-heading {
+.page-heading {
   text-align: center;
 }
 
 input[type=text] {
-  width: 40%;
+  width: 50%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -147,4 +148,15 @@ input[type=text] {
   height: 40px;
   margin: 10px 10px 10px 0px;
   width: 40%;
+  background-color: white;
+  font-size: 20px;
+}
+
+.contact-us {
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.label-tag {
+  font-size: 30px;
 }

@@ -1,20 +1,20 @@
 <h1>ADOPT THIS ANIMAL</h1>
 
 
-<p><%=@animal.animal_name%></p>
+<p><strong><%=@animal.animal_name%></strong></p>
 <img class="show_image" src=<%=@animal.image%> alt=<%@animal.animal_name%>>
 
+
 <form action="/animals/<%=@animal.id%>/adopt" method="post">
-<fieldset>
-  <div class="custom-select">
-    <label for="owner_select">Select Owner:</label>
-    <select name="owner_id" id="owner_select">
+
+
+<label class= "label-tag" for="owner_select"><strong>Select Owner:</strong></label>
+    <select class="custom-select" name="owner_id" id="owner_select">
       <% @owners.each do |owner| %>
           <option value=<%= owner.id %>><%= owner.name%></option>
         <% end %>
-      </select>
-  </div>
-</fieldset>
+    </select>
+
   <input type="hidden" name="available" id="available" value="no">
-  <input type="submit" value="Adopt Animal">
+  <input class="button" type="submit" value="Adopt Animal">
 </form>
