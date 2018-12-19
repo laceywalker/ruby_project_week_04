@@ -1,5 +1,5 @@
 body {
-  background-image: url("https://adelaidevet.com.au/sites/default/files/styles/featured_teaser/public/images/news/2015-cat-xmas-lights.jpg?itok=8VkANq6e");
+  background-image: url("http://images.pond5.com/animals-white-background-footage-075984387_prevstill.jpeg");
   background-size: cover;
   font-family: 'Montserrat', sans-serif;
   color: black;
@@ -7,15 +7,15 @@ body {
 
 .header {
   text-align: center;
-  line-height: 1.5;
+  line-height: 1;
   word-spacing: 0.3em;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 30px;
-  color: blue;
+  color: black;
   border: 2px solid black;
   background-image: url("https://png.pngtree.com/thumb_back/fw800/back_pic/05/16/30/2159b2936474f46.jpg");
-  background-size: top;
+  background-size: center;
   margin-bottom: 20px;
   opacity: 0.9;
 }
@@ -104,4 +104,14 @@ body {
 .gallery img {
   width: 80%;
   height: auto;
+}
+
+.animal-list {
+  margin: 5px;
+  text-align: center;
+  display: inline;
+}
+
+.index-image {
+  display: inline;
 }
