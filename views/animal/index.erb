@@ -1,25 +1,24 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="styles/animalstyle.css">
-</head>
 
-<h1>Animals We Currently Have:</h1>
+
+<h1>Our Current Animal Residents:</h1>
 
 <form action="/animals/search/for/animal" method="post">
   <input type="text" placeholder="Search">
   <input type="submit" value="search by type">
 </form>
 
-<div class = "animal-list">
-  <% @animals.each do |animal| %>
-  <p>Name: <%=animal.animal_name%> </p>
-  <p>Type: <%=animal.type%> </p>
-  <p>Available: <%=animal.available%></p>
-  <p>Resident Since: <%=animal.admission_date%></p>
-  <p>Owner: <%=animal.owner.name%></p>
 
-  <div class = "index-image">
-  <p><a href="/animals/<%=animal.id%>">More Information</a></p>
-  <img class="image" src=<%=animal.image%> alt=<%animal.animal_name%>>
-  </div>
-    <%end%>
+  <% @animals.each do |animal| %>
+    <div class = "animal-container">
+      <p>Name: <%=animal.animal_name%> </p>
+      <p>Type: <%=animal.type%> </p>
+      <p>Available: <%=animal.available%></p>
+      <p>Resident Since: <%=animal.admission_date%></p>
+      <p>Owner: <%=animal.owner.name%></p>
+    <div>
+      <div class = "index-image">
+        <p><a href="/animals/<%=animal.id%>">More Information</a></p>
+        <img class="image" src=<%=animal.image%> alt=<%animal.animal_name%>>
+      </div>
+  <%end%>
 </div>

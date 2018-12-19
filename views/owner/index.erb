@@ -1,8 +1,9 @@
-<h1>Owners</h1>
+
+<h1 id="owner-heading">List of Current Owners</h1>
+<h3>Or Register a New Owner:</h3>
 
 <form  action="/owners" method="post">
-
-<fieldset>
+<div class="register">
     <label for="owner_name">Enter Full Name:</label>
     <input
     type="text"
@@ -10,12 +11,12 @@
     id="owner_name"
     />
     <input type="submit" value="Register Owner">
-    </fieldset>
+    </div>
 </form>
-<!-- <p><a href="/owners/new">Register New Owner</a> -->
 
 
   <% @owners.each do |owner| %>
+<div class = "owners">
   <p>Name: <%=owner.name.capitalize%></p>
   <% owner.animal.each do |animal| %>
   <p>Animals: <%=animal.animal_name%></p>
@@ -23,3 +24,4 @@
 
   <p><a href="/owners/<%=owner.id%>">More Information</a></p>
   <%end%>
+</div>
