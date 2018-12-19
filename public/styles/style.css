@@ -97,6 +97,7 @@ body {
   opacity: 0.7;
 }
 
+
 .gallery {
   margin: 6px;
   border: 1px solid #black;
@@ -132,4 +133,16 @@ body {
 
 #owner-heading {
   text-align: center;
+}
+
+input[type=text] {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.custom-select {
+  position: relative;
+  height: 100%;
 }

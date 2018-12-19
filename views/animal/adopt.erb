@@ -6,7 +6,7 @@
 
 <form action="/animals/<%=@animal.id%>/adopt" method="post">
 <fieldset>
-  <div class="form-el">
+  <div class="custom-select">
     <label for="owner_select">Select Owner:</label>
     <select name="owner_id" id="owner_select">
       <% @owners.each do |owner| %>
