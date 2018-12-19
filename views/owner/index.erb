@@ -16,7 +16,7 @@
 
 
   <% @owners.each do |owner| %>
-  <p>Name: <%=owner.name%></p>
+  <p>Name: <%=owner.name.capitalize%></p>
   <% owner.animal.each do |animal| %>
   <p>Animals: <%=animal.animal_name%></p>
     <%end%>

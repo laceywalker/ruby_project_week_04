@@ -1,6 +1,6 @@
 <h1>Owners</h1>
 
-<p>Name: <%=@owner.name%></p>
+<p>Name: <%=@owner.name.capitalize%></p>
 
 <% @owner.animal.each do |animal| %>
 <p>Animals: <%=animal.animal_name%></p>
